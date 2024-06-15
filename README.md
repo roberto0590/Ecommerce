@@ -20,6 +20,7 @@ Online shopping cart simulation
 * OpenJdk 17, Maven Plugin, Spring Boot 3.3.0, Spring Cloud 2023.0.2, PostgreSQL Database
 * ex. Windows 10
 * PostgreSQL database is needed to create tables used in the system
+* The data in the database is temporary, it is a temporary database in PostgreSQL deployed in Azure
 
 ### Installing
 
