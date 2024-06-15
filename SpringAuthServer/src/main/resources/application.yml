@@ -1,0 +1,26 @@
+server:
+  port: 9999
+spring:
+  jpa:
+    database: POSTGRESQL
+    show-sql: false
+    hibernate:
+      ddl-auto: update
+  datasource:
+    driverClassName: org.postgresql.Driver
+    url: jdbc:postgresql://fdlpostgresql.postgres.database.azure.com/TESTHTC
+    username: robrecflo
+    password: Equifax2021$
+    
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+security:
+  oauth2:
+    client:
+      client-id: products
+      client-secret: mito89codex
+      authorized-grant-types: password
+      scope: read,write     
