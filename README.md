@@ -49,32 +49,100 @@ Online shopping cart simulation
 
 ## Module Description
 
-*entity
+* entity
 ```
 library with entities & DTO
 ```
 
-*products
+### products
+* Product Management Microservice
+  
 ```
-Product Management Microservice
-##Main Endpoints
+/product/findAllBD
+---
+---
+/product/findAllExternal
+---
+---
+/product/findAllAndSaveBD
+---
+---
+/product/delete/{idProducto}
+```
 
-*/product/findAllBD
-*/product/findAllExternal
-*/product/findAllAndSaveBD
-*/product/delete/{idProducto}
+### orders
+* Purchasing Management Microservice
 
 ```
 
-*orders
+
+/orders/findBalanceByOrder/10
+/orders/buys
+
+{
+    "customerCode": 1,
+    "productCode": 175
+}
+---
+
+---
+/orders/findOrderByClient
+
+{
+    "customerCode": 1,
+    "mailCustomer" :"prueba@gmail.com"
+}
+---
+
+---
+/orders/findOrderByDate
+
+{
+    "fecha1": "2024-06-12",
+    "fecha2" :"2024-06-14"
+}
+---
+
+---
+/orders/delete/15
+---
+
+---
+/detailOrder/delete/7
+---
+
+---
+/orders/deleteOrderComplete/13
+---
+
+
+### pays
+
+* Payment Management Microservice
+
 ```
-Purchasing Management Microservice
+/pay/insert/18
 ```
 
-*pays
 ```
-Payment Management Microservice
+/pay/findByOrderClientID/1
 ```
+
+```
+/pay/delete/14
+```
+
+```
+/pay/findByOrder
+
+{
+    "order":{
+        "id":11
+    }
+}
+
+```
+
 
 *discovery-server
 ```
