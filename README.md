@@ -58,15 +58,16 @@ library with entities & DTO
 * Product Management Microservice
   
 ```
+**Search all product catalog database**
 /product/findAllBD
----
----
+
+***Search all product catalog from external source https://fakestoreapi.com/products***
 /product/findAllExternal
----
----
+
+***Search for all the product catalog from the external source ttps://fakestoreapi.com/products and if it is the first time, enter them in the database, this in case the endpoint is not available***
 /product/findAllAndSaveBD
----
----
+
+***Deleting a product based on its database id***
 /product/delete/{idProducto}
 ```
 
@@ -74,65 +75,64 @@ library with entities & DTO
 * Purchasing Management Microservice
 
 ```
+***Show the total balance of a purchase according to the order id***
+/orders/findBalanceByOrder/{orderId}
 
-
-/orders/findBalanceByOrder/10
+***Register a purchase, according to the customer and the product
+The purchase can be made by sending the customer's ID or the customer's email, in addition the product code must be included in the database or the name of the product can also be sent.
+Validations
+    1. If a purchase order does not exist, it will be created
+    2. If the customer has all purchase orders paid, a new one will also be created
+    3. If the customer has an active order, which has not been paid, then the product will be         associated with the purchase order.***
 /orders/buys
+Input
+    {
+        "customerCode": 1,
+        "productCode": 175
+    }
 
-{
-    "customerCode": 1,
-    "productCode": 175
-}
----
 
----
+***The search can be by the client's code or the client's email
+The details of the customer's orders, their associated products, and the payment for each order will be displayed, or the payment object will be shown as null if an order is active and payment has not been made and has not been deleted.***
 /orders/findOrderByClient
-
+Input
 {
-    "customerCode": 1,
-    "mailCustomer" :"prueba@gmail.com"
+    "customerCode":  {clientId},
+    "mailCustomer" : {clientMail}
 }
----
 
----
+
+***Search for orders by dates, shows all orders only using the date filter***
 /orders/findOrderByDate
-
+Input
 {
-    "fecha1": "2024-06-12",
-    "fecha2" :"2024-06-14"
+    "fecha1": "YYYY-MM-DD",
+    "fecha2" :"YYYY-MM-DD"
 }
----
 
----
-/orders/delete/15
----
+***Delete order according to the order id, it is validated that the order does not have associated payments and secondly that it does not have products associated with the order***
+/orders/delete/{}
 
----
-/detailOrder/delete/7
----
+***Deleting a product based on its database id***
+/detailOrder/delete/{orderId}
 
----
-/orders/deleteOrderComplete/13
----
-
+***The order and its associated products will be deleted completely, as long as the order does not have a related payment.***
+/orders/deleteOrderComplete/{orderId}
+```
 
 ### pays
-
 * Payment Management Microservice
 
-```
+---
+
 /pay/insert/18
-```
 
-```
+
 /pay/findByOrderClientID/1
-```
 
-```
+
 /pay/delete/14
-```
 
-```
 /pay/findByOrder
 
 {
@@ -144,7 +144,7 @@ library with entities & DTO
 ```
 
 
-*discovery-server
+### discovery-server
 ```
 Microservice Product Management
 ```
