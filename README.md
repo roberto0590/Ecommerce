@@ -17,7 +17,7 @@ Online shopping cart simulation
 
 ### Dependencies
 
-* OpenJdk 17, Maven Plugin, Spring Boot 3.3.0, Spring Cloud 2023.0.2
+* OpenJdk 17, Maven Plugin, Spring Boot 3.3.0, Spring Cloud 2023.0.2, PostgreSQL Database
 * ex. Windows 10
 
 ### Installing
@@ -57,6 +57,13 @@ library with entities & DTO
 *products
 ```
 Product Management Microservice
+##Main Endpoints
+
+*/product/findAllBD
+*/product/findAllExternal
+*/product/findAllAndSaveBD
+*/product/delete/{idProducto}
+
 ```
 
 *orders
@@ -85,7 +92,7 @@ Microservice Product Management
 Contributors names and contact info
 
 ex. Roberto Recinos  
-ex. [@Robero0590](www.linkedin.com/in/roberto-recinos-956a8596)
+ex. [@Robero0590](http://www.linkedin.com/in/roberto-recinos-956a8596)
 
 ## Version History
 
@@ -95,12 +102,3 @@ ex. [@Robero0590](www.linkedin.com/in/roberto-recinos-956a8596)
 ## License
 
 Open source program
-
-## Acknowledgments
-
-Inspiration, code snippets, etc.
-* [awesome-readme](https://github.com/matiassingers/awesome-readme)
-* [PurpleBooth](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2)
-* [dbader](https://github.com/dbader/readme-template)
-* [zenorocha](https://gist.github.com/zenorocha/4526327)
-* [fvcproductions](https://gist.github.com/fvcproductions/1bfc2d4aecb01a834b46)
