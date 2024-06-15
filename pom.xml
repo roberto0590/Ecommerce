@@ -8,6 +8,8 @@
         <module>products</module>
         <module>orders</module>
         <module>pays</module>
+        <module>discovery-server</module>
+        <module>api-getway</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
