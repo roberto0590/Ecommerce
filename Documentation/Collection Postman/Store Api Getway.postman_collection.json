@@ -1,0 +1,513 @@
+{
+	"info": {
+		"_postman_id": "2c4104aa-0877-4580-a5a8-d27cc740ac80",
+		"name": "Store Api Getway",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "35577627"
+	},
+	"item": [
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "fakestoreapi.com",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://fakestoreapi.com/products",
+							"protocol": "https",
+							"host": [
+								"fakestoreapi",
+								"com"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findAllProductoBD",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsibWl0b3Jlc291cmNlaWQiXSwidXNlcl9uYW1lIjoicm9iZXJ0bzA1OTBAaG90bWFpbC5jb20iLCJzY29wZSI6WyJyZWFkIiwid3JpdGUiXSwiZXhwIjoxNzE4MzUxMDk1LCJhdXRob3JpdGllcyI6WyJBZG1pbiBkZSBCRCIsIkFkbWluaXN0cmFkb3IiXSwianRpIjoiZWUzOWNjMGYtMWVjOC00NzlhLTk0YTMtY2NkOWNiMDA2NDMyIiwiY2xpZW50X2lkIjoibWl0b21lZGlhcHAifQ.33dJCOJHJNm5O1IAhSxDk8fiaaSJ28HrodoZCJvAoJQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:9090/product/findAllBD",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"product",
+								"findAllBD"
+							]
+						},
+						"description": "Products stored in the database"
+					},
+					"response": []
+				},
+				{
+					"name": "findAllProductsExternal",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9090/product/findAllExternal",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"product",
+								"findAllExternal"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findAllProductsAndSaveAll",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9090/product/findAllAndSaveBD",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"product",
+								"findAllAndSaveBD"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteProduct",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9090/product/delete/172",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"product",
+								"delete",
+								"172"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "registerProduct",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"title\",\r\n    \"price\": 67.78,\r\n    \"description\": \"description\",\r\n    \"category\": \"category\",\r\n    \"image\": \"image\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9090/product/insert",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"product",
+								"insert"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pays",
+			"item": [
+				{
+					"name": "registerPayment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9090/pay/insert/12",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"pay",
+								"insert",
+								"12"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findPaysByClient",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9090/pay/findByOrderClientID/1",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"pay",
+								"findByOrderClientID",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deletePay",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9090/pay/delete/7",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"pay",
+								"delete",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findPayByOrderID",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"order\":{\r\n        \"id\":11\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9090/pay/findByOrder",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"pay",
+								"findByOrder"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Buys",
+			"item": [
+				{
+					"name": "findOrderByOrderID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9090/orders/findBalanceByOrder/10",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"orders",
+								"findBalanceByOrder",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "registerBuys",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"customerCode\": 1,\r\n    \"mailCustomer\" :\"prueba@gmail.com\",\r\n    \"productCode\": 179,\r\n    \"productName\": \"Samsung 49-Inch CHG90 144Hz Curved Gaming Monitor (LC49HG90DMNXZA) – Super Ultrawide Screen QLED \"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9090/orders/buys",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"orders",
+								"buys"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findOrderByClientID",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"customerCode\": 1,\r\n    \"mailCustomer\" :\"prueba@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9090/orders/findOrderByClient",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"orders",
+								"findOrderByClient"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findOrderByDate",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fecha1\": \"2024-06-12\",\r\n    \"fecha2\" :\"2024-06-14\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9090/orders/findOrderByDate",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"orders",
+								"findOrderByDate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteBuys",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9090/orders/delete/7",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"orders",
+								"delete",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteProductOrder",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9090/detailOrder/delete/7",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"detailOrder",
+								"delete",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteOrderComplete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9090/orders/deleteOrderComplete/13",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"orders",
+								"deleteOrderComplete",
+								"13"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
