@@ -12,4 +12,5 @@ public interface IPayService extends ICRUD<Pay, Integer> {
     public PayDTO findByOrder(Integer orderID);
     public PayDTO insertPayment(Integer id) throws Exception;
     public List<PayDTO> findByOrderClientID(Integer clientID) throws Exception;
+    public void deletePayById(Integer payId) throws Exception;
 }

@@ -79,8 +79,6 @@ public class OrdersServiceImpl extends CRUDImpl<Order, Integer> implements IOrde
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 		LocalDate dateTime1 = LocalDate.parse(date1, formatter);
 		LocalDate dateTime2 = LocalDate.parse(date2, formatter);
-		//LocalDateTime dateTime1 = LocalDateTime.parse(date1, formatter);
-		//LocalDateTime dateTime2 = LocalDateTime.parse(date2, formatter);
 		List<Order> orders= repoOrder.findByOrderDate(dateTime1,dateTime2);
 		List<OrderResultDTO> orderResultDTO = orders.stream().map(order -> OrderMapper.mapper.orderToOrderResultDto(order)).collect(Collectors.toList());
 		sales.setOrderDTO(orderResultDTO);
@@ -129,6 +127,36 @@ public class OrdersServiceImpl extends CRUDImpl<Order, Integer> implements IOrde
 		return detailOrderDTO;
 	}
 
+
+	public void deleteOrderById(Integer orderId) throws Exception {
+
+		PayDTO pay=payFeignClient.findByOrderID(orderId);
+		if(pay!=null)
+			throw new ModeloNotFoundException(
+							"The order already has a payment, I can't delete the order," +
+							" if you want to delete it, you need to cancel the payment");
+		List<DetailOrder> detailOrders = repoDetailOrder.findByOrderId(orderId);
+		if(detailOrders.size()>0)
+			throw new ModeloNotFoundException(
+					"The order has associated products, you must proceed to" +
+							" delete the products, and then delete the order");
+
+		repoOrder.deleteById(orderId);
+	}
+
+	public void deleteOrderCompleteById(Integer orderId) throws Exception{
+
+		PayDTO pay=payFeignClient.findByOrderID(orderId);
+		if(pay!=null)
+			throw new ModeloNotFoundException(
+					"The order already has a payment, I can't delete the order," +
+							" if you want to delete it, you need to cancel the payment");
+		List<DetailOrder> detailOrders = repoDetailOrder.findByOrderId(orderId);
+		//Delete detailOrder then Delete Order
+		repoDetailOrder.deleteAll(detailOrders);
+		repoOrder.deleteById(orderId);
+
+	}
 
 	public BuysDTO insertBuys(BuysDTO buys) throws Exception {
 		ProductDTO productDTO = new ProductDTO();

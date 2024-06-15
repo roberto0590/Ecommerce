@@ -72,9 +72,10 @@ public class PayController {
     public ResponseEntity<Void> delete(@PathVariable("id") Integer id) throws Exception {
         log.info("Deleting Pay ... ");
         if(id == 0) {
-            throw new ModeloNotFoundException("ID no puede ser 0 " + id);
+            throw new ModeloNotFoundException("D cannot be 0 " + id);
         }
-        payService.eliminar(id);
+        payService.deletePayById(id);
+
         return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
     }
 }

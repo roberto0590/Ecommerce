@@ -13,6 +13,8 @@ import java.util.List;
 public interface IDetailOrderRepo extends IGenericRepo<DetailOrder, Integer>{
     @Query("SELECT do FROM DetailOrder do WHERE do.order.id = ?1")
     public DetailOrder findByOrder(Integer order);
+    @Query("SELECT do FROM DetailOrder do WHERE do.id = ?1")
+    public DetailOrder findByOrderDetailId(Integer detailOrder);
     @Query("SELECT do FROM DetailOrder do WHERE do.order.client.id = ?1 and do.order.id = ?2")
     public List<DetailOrder> findByClientAndOrder(Integer cliente, Integer order);
     @Query("SELECT do FROM DetailOrder do WHERE do.order.client.id = ?1")

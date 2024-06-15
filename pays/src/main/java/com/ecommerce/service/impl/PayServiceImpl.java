@@ -5,6 +5,7 @@ import com.ecommerce.dto.DetailOrderDTO;
 import com.ecommerce.dto.OrderDTO;
 import com.ecommerce.dto.PayDTO;
 import com.ecommerce.dto.PayOrderDTO;
+import com.ecommerce.entity.DetailOrder;
 import com.ecommerce.entity.Order;
 import com.ecommerce.entity.Pay;
 import com.ecommerce.exception.ModeloNotFoundException;
@@ -37,12 +38,25 @@ public class PayServiceImpl extends CRUDImpl<Pay, Integer> implements IPayServic
 		PayDTO payDTO = PayMapper.mapper.payToPayDto(pay);
 		return payDTO;
 	}
+
 	public List<PayDTO>  findByOrderClientID(Integer clientID) throws Exception {
 		List<Pay> pays = repoPay.findByOrderClientID(clientID);
 		List<PayDTO> paysDTO =pays.stream().map(pay -> PayMapper.mapper.payToPayDto(pay)).collect(Collectors.toList());
 		return paysDTO;
 	}
 
+	public void deletePayById(Integer payId) throws Exception{
+		Pay pay=repoPay.findByPayId(payId);
+		if(pay==null)
+			throw new ModeloNotFoundException("The record does not exist");
+
+		Order order = pay.getOrder();
+
+		order.setStatus(null);
+		orderFeignClient.update(order);
+		repoPay.deleteById(payId);
+
+	}
 
 	public PayDTO insertPayment(Integer id) throws Exception{
 		LocalDate localDateTime = LocalDate.now();

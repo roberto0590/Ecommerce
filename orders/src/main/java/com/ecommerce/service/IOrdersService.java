@@ -16,4 +16,6 @@ public interface IOrdersService extends ICRUD<Order, Integer> {
     public OrderDTO findBalanceByOrder(Integer order) throws Exception;
     public List<DetailOrderDTO>  findDetailorderByOrder(Integer orderID) throws Exception;
     public Sales findOrderByDate(String date1, String date2) throws Exception;
+    public void deleteOrderById(Integer orderId) throws Exception;
+    public void deleteOrderCompleteById(Integer orderId) throws Exception;
 }

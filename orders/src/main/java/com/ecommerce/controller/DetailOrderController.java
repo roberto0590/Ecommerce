@@ -57,13 +57,13 @@ public class DetailOrderController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<Void> delete(@PathVariable("id") Integer id) throws Exception {
+    public ResponseEntity<String> delete(@PathVariable("id") Integer id) throws Exception {
         log.info("Deleting DetailOrder ... ");
         if(id == 0) {
-            throw new ModeloNotFoundException("ID no puede ser 0 " + id);
+            throw new ModeloNotFoundException("D cannot be 0" + id);
         }
-        detailOrderService.eliminar(id);
-        return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
+        detailOrderService.deleteDetailOrderById(id);
+        return new ResponseEntity<String>("Order product removed",HttpStatus.NO_CONTENT);
     }
 }
 

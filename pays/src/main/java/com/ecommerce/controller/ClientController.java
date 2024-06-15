@@ -53,7 +53,7 @@ public class ClientController {
     public ResponseEntity<Void> delete(@PathVariable("id") Integer id) throws Exception {
         log.info("Deleting Client ... ");
         if(id == 0) {
-            throw new ModeloNotFoundException("ID no puede ser 0 " + id);
+            throw new ModeloNotFoundException("D cannot be 0 " + id);
         }
         clientService.eliminar(id);
         return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);

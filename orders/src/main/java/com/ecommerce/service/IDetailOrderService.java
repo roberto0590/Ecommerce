@@ -5,4 +5,5 @@ import com.ecommerce.entity.DetailOrder;
 
 public interface IDetailOrderService extends ICRUD<DetailOrder, Integer> {
     public DetailOrder findByCliente(Integer client);
+    public DetailOrder deleteDetailOrderById(Integer detailOrderId) throws Exception;
 }
